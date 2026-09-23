@@ -6,6 +6,7 @@
         "esModuleInterop": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
+        "rootDir": "./src",
         "outDir": "./dist",
         "resolveJsonModule": true,
         "noImplicitAny": true,
@@ -14,10 +15,6 @@
         "noImplicitThis": true,
         "noUnusedLocals": true,
         "alwaysStrict": true,
-        "baseUrl": "./",
-        "paths": {
-            "*": ["*"]
-        }
     },
     "include": ["src/**/*", "test/**/*", "config/**/*"],
     "exclude": ["node_modules", "dist"]
