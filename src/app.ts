@@ -17,7 +17,7 @@ app.get('/api/v1/health', (req, res) => {
   })
 })
 
-app.get('/api/v1/portfolio/performance', (req, res) =>{
+app.get('/api/v1/portfolio/performance', (req, res) => {
   let initialInvestment = Number(req.query.initialInvestment)
   let currentValue = Number(req.query.currentValue)
 

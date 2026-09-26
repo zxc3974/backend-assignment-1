@@ -15,27 +15,27 @@ export function calculatePortfolioPerformance(initialInvestment: number, current
     switch (true) {
         case percentageChange > 30:
             performanceSummary = "Excellent performance! Your investments are doing great.";
-        break
+            break
 
         case percentageChange >= 10:
             performanceSummary = "Solid gain. Keep monitoring your investments.";
-        break
+            break
 
         case percentageChange > 0:
             performanceSummary = "Modest gain. Your portfolio is growing slowly.";
-        break
+            break
 
         case percentageChange === 0:
             performanceSummary = "No change. Your portfolio is holding steady.";
-        break
+            break
 
         case percentageChange < 0 && percentageChange >= -10:
             performanceSummary = "Minor loss. Stay calm and review your options.";
-        break
+            break
 
         case percentageChange <= -10:
             performanceSummary = "Significant loss. Review your portfolio strategy.";
-        break
+            break
 
         default:
             performanceSummary = "NaN"
