@@ -1,7 +1,7 @@
 import express, { type Express, type Request, type Response } from 'express';
 import { calculatePortfolioPerformance } from './portfolio/portfolioPerformance';
 
-const app: Express = express();
+export const app: Express = express();
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');

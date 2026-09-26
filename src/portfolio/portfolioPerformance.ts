@@ -17,7 +17,7 @@ export function calculatePortfolioPerformance(initialInvestment: number, current
             performanceSummary = "Excellent performance! Your investments are doing great.";
         break
 
-        case percentageChange > 10:
+        case percentageChange >= 10:
             performanceSummary = "Solid gain. Keep monitoring your investments.";
         break
 
@@ -29,7 +29,7 @@ export function calculatePortfolioPerformance(initialInvestment: number, current
             performanceSummary = "No change. Your portfolio is holding steady.";
         break
 
-        case percentageChange < 0 && percentageChange > -10:
+        case percentageChange < 0 && percentageChange >= -10:
             performanceSummary = "Minor loss. Stay calm and review your options.";
         break
 
