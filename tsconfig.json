@@ -17,7 +17,7 @@
         "alwaysStrict": true,
         "types": ["node", "jest"]
     },
-    "include": ["src/**/*", "test/**/*", "config/**/*"],
+    "include": ["src/**/*", "test/**/*", "config/**/*", "jest.config.js"],
     "exclude": ["node_modules", "dist"],
 
 }

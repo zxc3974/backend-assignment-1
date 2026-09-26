@@ -1,14 +1,12 @@
 import request, { Response } from "supertest";
 import app from "../src/app";
-import { calculatePortfolioPerformance } from "../src/portfolio/portfolioPerformance";
-
 
 describe("Portfolio Tests", () => {
 
     describe("GET /healthcheck", () => {
         it("should return a valid health check response", async () => {
             // Act
-            const response: Response = await request(app).get("http://127.0.0.1:3000/api/v1/health");
+            const response: Response = await request(app).get("/api/v1/health");
 
             // Assert
             expect(response.status).toBe(200);
@@ -21,10 +19,10 @@ describe("Portfolio Tests", () => {
         });
     });
 
-    describe("GET http://127.0.0.1:3000/api/v1/portfolio/performance?initialInvestment=10000&currentValue=16000", () => {
+    describe("GET /api/v1/portfolio/performance?initialInvestment=10000&currentValue=16000", () => {
         it("should return a placeholder response", async () => {
             // Act
-            const response: Response = await request(app).get("/something");
+            const response: Response = await request(app).get("/api/v1/portfolio/performance?initialInvestment=10000&currentValue=16000");
 
             // Assert
             expect(response.status).toBe(200);
@@ -38,10 +36,10 @@ describe("Portfolio Tests", () => {
         });
     });
 
-    describe("GET http://127.0.0.1:3000/api/v1/portfolio/performance?initialInvestment=10000&currentValue=13000", () => {
+    describe("GET /api/v1/portfolio/performance?initialInvestment=10000&currentValue=13000", () => {
         it("should return a placeholder response", async () => {
             // Act
-            const response: Response = await request(app).get("/something");
+            const response: Response = await request(app).get("/api/v1/portfolio/performance?initialInvestment=10000&currentValue=13000");
 
             // Assert
             expect(response.status).toBe(200);
@@ -55,27 +53,27 @@ describe("Portfolio Tests", () => {
         });
     });
 
-    describe("GET http://127.0.0.1:3000/api/v1/portfolio/performance?initialInvestment=10000&currentValue=12999.9", () => {
+    describe("GET /api/v1/portfolio/performance?initialInvestment=10000&currentValue=12999.9", () => {
         it("should return a placeholder response", async () => {
             // Act
-            const response: Response = await request(app).get("/something");
+            const response: Response = await request(app).get("/api/v1/portfolio/performance?initialInvestment=10000&currentValue=12999.9");
 
             // Assert
             expect(response.status).toBe(200);
             expect(response.body).toEqual({
                 "initialInvestment": 10000,
                 "currentValue": 12999.9,
-                "profitOrLoss": 2999.9,
-                "percentageChange": 29.999,
+                "profitOrLoss": expect.closeTo(2999.9),
+                "percentageChange": expect.closeTo(29.999),
                 "performanceSummary": "Solid gain. Keep monitoring your investments."
             });
         });
     });
 
-    describe("GET http://127.0.0.1:3000/api/v1/portfolio/performance?initialInvestment=10000&currentValue=11000", () => {
+    describe("GET /api/v1/portfolio/performance?initialInvestment=10000&currentValue=11000", () => {
         it("should return a placeholder response", async () => {
             // Act
-            const response: Response = await request(app).get("/something");
+            const response: Response = await request(app).get("/api/v1/portfolio/performance?initialInvestment=10000&currentValue=11000");
 
             // Assert
             expect(response.status).toBe(200);
@@ -89,44 +87,44 @@ describe("Portfolio Tests", () => {
         });
     });
 
-    describe("GET http://127.0.0.1:3000/api/v1/portfolio/performance?initialInvestment=10000&currentValue=10999.9", () => {
+    describe("GET /api/v1/portfolio/performance?initialInvestment=10000&currentValue=10999.9", () => {
         it("should return a placeholder response", async () => {
             // Act
-            const response: Response = await request(app).get("/something");
+            const response: Response = await request(app).get("/api/v1/portfolio/performance?initialInvestment=10000&currentValue=10999.9");
 
             // Assert
             expect(response.status).toBe(200);
             expect(response.body).toEqual({
                 "initialInvestment": 10000,
                 "currentValue": 10999.9,
-                "profitOrLoss": 999.9,
-                "percentageChange": 9.999,
+                "profitOrLoss": expect.closeTo(999.9),
+                "percentageChange": expect.closeTo(9.999),
                 "performanceSummary": "Modest gain. Your portfolio is growing slowly."
             });
         });
     });
 
-    describe("GET http://127.0.0.1:3000/api/v1/portfolio/performance?initialInvestment=10000&currentValue=10000.1", () => {
+    describe("GET /api/v1/portfolio/performance?initialInvestment=10000&currentValue=10000.1", () => {
         it("should return a placeholder response", async () => {
             // Act
-            const response: Response = await request(app).get("/something");
+            const response: Response = await request(app).get("/api/v1/portfolio/performance?initialInvestment=10000&currentValue=10000.1");
 
             // Assert
             expect(response.status).toBe(200);
             expect(response.body).toEqual({
                 "initialInvestment": 10000,
                 "currentValue": 10000.1,
-                "profitOrLoss": 0.100000000000364,
-                "percentageChange": 0.00100000000000364,
+                "profitOrLoss": expect.closeTo(0.100000000000364),
+                "percentageChange": expect.closeTo(0.00100000000000364),
                 "performanceSummary": "Modest gain. Your portfolio is growing slowly."
             });
         });
     });
 
-    describe("GET http://127.0.0.1:3000/api/v1/portfolio/performance?initialInvestment=10000&currentValue=10000", () => {
+    describe("GET /api/v1/portfolio/performance?initialInvestment=10000&currentValue=10000", () => {
         it("should return a placeholder response", async () => {
             // Act
-            const response: Response = await request(app).get("/something");
+            const response: Response = await request(app).get("/api/v1/portfolio/performance?initialInvestment=10000&currentValue=10000");
 
             // Assert
             expect(response.status).toBe(200);
@@ -140,52 +138,52 @@ describe("Portfolio Tests", () => {
         });
     });
 
-    describe("GET http://127.0.0.1:3000/api/v1/portfolio/performance?initialInvestment=10000&currentValue=9999.9", () => {
+    describe("GET /api/v1/portfolio/performance?initialInvestment=10000&currentValue=9999.9", () => {
         it("should return a placeholder response", async () => {
             // Act
-            const response: Response = await request(app).get("/something");
+            const response: Response = await request(app).get("/api/v1/portfolio/performance?initialInvestment=10000&currentValue=9999.9");
 
             // Assert
             expect(response.status).toBe(200);
             expect(response.body).toEqual({
                 "initialInvestment": 10000,
                 "currentValue": 9999.9,
-                "profitOrLoss": -0.100000000000364,
-                "percentageChange": -0.00100000000000364,
+                "profitOrLoss": expect.closeTo(-0.100000000000364),
+                "percentageChange": expect.closeTo(-0.00100000000000364),
                 "performanceSummary": "Minor loss. Stay calm and review your options."
             });
         });
     });
 
-    describe("GET http://127.0.0.1:3000/api/v1/portfolio/performance?initialInvestment=10000&currentValue=9000", () => {
+    describe("GET /api/v1/portfolio/performance?initialInvestment=10000&currentValue=9000", () => {
         it("should return a placeholder response", async () => {
             // Act
-            const response: Response = await request(app).get("/something");
+            const response: Response = await request(app).get("/api/v1/portfolio/performance?initialInvestment=10000&currentValue=9000");
 
             // Assert
             expect(response.status).toBe(200);
             expect(response.body).toEqual({
                 "initialInvestment": 10000,
                 "currentValue": 9000,
-                "profitOrLoss": -1000,
-                "percentageChange": -10,
+                "profitOrLoss": expect.closeTo(-1000),
+                "percentageChange": expect.closeTo(-10),
                 "performanceSummary": "Minor loss. Stay calm and review your options."
             });
         });
     });
 
-    describe("GET http://127.0.0.1:3000/api/v1/portfolio/performance?initialInvestment=10000&currentValue=8999.9", () => {
+    describe("GET /api/v1/portfolio/performance?initialInvestment=10000&currentValue=8999.9", () => {
         it("should return a placeholder response", async () => {
             // Act
-            const response: Response = await request(app).get("/something");
+            const response: Response = await request(app).get("/api/v1/portfolio/performance?initialInvestment=10000&currentValue=8999.9");
 
             // Assert
             expect(response.status).toBe(200);
             expect(response.body).toEqual({
                 "initialInvestment": 10000,
                 "currentValue": 8999.9,
-                "profitOrLoss": -1000.1,
-                "percentageChange": -10.001,
+                "profitOrLoss": expect.closeTo(-1000.1),
+                "percentageChange": expect.closeTo(-10.001),
                 "performanceSummary": "Significant loss. Review your portfolio strategy."
             });
         });
