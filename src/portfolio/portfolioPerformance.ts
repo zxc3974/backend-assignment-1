@@ -1,11 +1,17 @@
-export function calculatePortfolioPerformance(initialInvestment: number, currentValue: number) {
+interface PortfolioPerformance {
+    initialInvestment: number,
+    currentValue: number,
+    profitOrLoss: number,
+    percentageChange: number,
+    performanceSummary: string,
+}
+
+export function calculatePortfolioPerformance(initialInvestment: number, currentValue: number): PortfolioPerformance {
 
     const profitOrLoss = currentValue - initialInvestment;
-
     const percentageChange = (profitOrLoss / initialInvestment) * 100;
 
-    let performanceSummary;
-
+    let performanceSummary: string;
     switch (true) {
         case percentageChange > 30:
             performanceSummary = "Excellent performance! Your investments are doing great.";
@@ -30,8 +36,11 @@ export function calculatePortfolioPerformance(initialInvestment: number, current
         case percentageChange <= -10:
             performanceSummary = "Significant loss. Review your portfolio strategy.";
         break
+
+        default:
+            performanceSummary = "NaN"
     }
-    
+
     return {
         initialInvestment,
         currentValue,
